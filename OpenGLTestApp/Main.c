@@ -445,7 +445,7 @@ GLfloat LampNormalMap[] =
 	-1, 1, 3,
 };
 
-GLFWwindow *WindowInitialize(GLsizei width, GLsizei height, const GLbyte *title)
+GLFWwindow *WindowInitialize(GLsizei Width, GLsizei Height, const GLbyte *Title)
 {
 	GLint InitResult = glfwInit();
 	if (InitResult != GLFW_TRUE)
@@ -455,7 +455,7 @@ GLFWwindow *WindowInitialize(GLsizei width, GLsizei height, const GLbyte *title)
 
 	glfwWindowHint(GLFW_SAMPLES, 4);
 
-	GLFWwindow *WindowHandle = glfwCreateWindow(width, height, title, NULL, NULL);
+	GLFWwindow *WindowHandle = glfwCreateWindow(Width, Height, Title, NULL, NULL);
 	if (WindowHandle == NULL)
 	{
 		return NULL;
@@ -571,37 +571,35 @@ GLvoid Update(GLFWwindow *WindowHandle)
 	glPushMatrix();
 	{
 		glRotatef(180, 0, 1, 0);
-		static float angle = 1;
-		glRotatef(angle += 1, 0, 1, 0);
+		static GLfloat Angle = 1;
+		glRotatef(Angle += 1, 0, 1, 0);
 		glTranslatef(0, 0, 20);
 		DrawLamp();
 
-		GLfloat lightPosition[] = { 0, 0, 1, 0 };
-		GLfloat lightDiffuse[] = { 0, 0, 1, 1 };
-		GLfloat lightAmbient[] = { -0.05, -0.05, -0.05, 1 };
+		GLfloat LightPosition[] = { 0, 0, 1, 0 };
+		GLfloat LightDiffuse[] = { 0, 0, 1, 1 };
+		GLfloat LightAmbient[] = { -0.05, -0.05, -0.05, 1 };
 
-
-		glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse);
-		glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
-		glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient);
+		glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiffuse);
+		glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
+		glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmbient);
 	}
 	glPopMatrix();
 
 	glPushMatrix();
 	{
-		static float angle = 1;
-		glRotatef(angle += 1, 0, 1, 0);
+		static GLfloat Angle = 1;
+		glRotatef(Angle += 1, 0, 1, 0);
 		glTranslatef(0, 0, 20);
 		DrawLamp();
 
-		GLfloat lightPosition[] = { 0, 0, 1, 0 };
-		GLfloat lightDiffuse[] = { 1, 0, 0, 1 };
-		GLfloat lightAmbient[] = { -0.05, -0.05, -0.05, 1 };
+		GLfloat LightPosition[] = { 0, 0, 1, 0 };
+		GLfloat LightDiffuse[] = { 1, 0, 0, 1 };
+		GLfloat LightAmbient[] = { -0.05, -0.05, -0.05, 1 };
 
-		glEnable(GL_LIGHT1);
-		glLightfv(GL_LIGHT1, GL_POSITION, lightPosition);
-		glLightfv(GL_LIGHT1, GL_DIFFUSE, lightDiffuse);
-		glLightfv(GL_LIGHT1, GL_AMBIENT, lightAmbient);
+		glLightfv(GL_LIGHT1, GL_POSITION, LightPosition);
+		glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);
+		glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);
 	}
 	glPopMatrix();
 
