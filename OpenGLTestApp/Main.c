@@ -112,6 +112,7 @@ GLvoid CoordNormalizeAndNormMaps()
 		BatPolygons[i + 1] -= 4;
 		BatNormalMap[i] -= 9;
 		BatNormalMap[i + 1] -= 4;
+		BatNormalMap[i + 2] += 10;
 	}
 }
 
@@ -170,7 +171,7 @@ GLvoid Update(GLFWwindow *WindowHandle)
 	DrawBat();
 }
 
-GLint main(GLint Argc, GLbyte **Argv)
+GLint main()
 {
 	GLFWwindow *WindowHandle = WindowInitialize(1280, 720, "Computer graphics");
 	if (WindowHandle == NULL)
